@@ -1,0 +1,3 @@
+rootProject.name='My First App'
+include ':app'
+include ':custom-lib'

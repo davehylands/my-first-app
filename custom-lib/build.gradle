@@ -1,0 +1,37 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main.java.srcDirs += System.env.FS_HOME + '/nativemobile/android/adk/impl/src/protocol/java'
+        //main.java.srcDirs += System.env.FS_HOME + '/nativemobile/flutter/android/src/main/java'
+        //main.java.srcDirs += System.env.FS_HOME + '/nativemobile/flutter/android/adk/impl/src/main/java'
+    }
+}
+
+//compileJava {
+//    options.annotationProcessorPath = configurations.annotationProcessor
+//}
+
+dependencies {
+    testImplementation 'junit:junit:4.12'
+    testImplementation group: 'org.robolectric', name: 'android-all', version: "9-robolectric-4799589"
+}
