@@ -1,0 +1,23 @@
+apply plugin: 'java-library'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+}
+
+sourceCompatibility = "7"
+targetCompatibility = "7"
+
+sourceSets {
+    main {
+        java {
+            srcDirs += System.env.FS_HOME + '/nativemobile/android/adk/impl/src/protocol/java'
+        }
+    }
+}
+
+dependencies {
+    compileOnly group: 'org.robolectric', name: 'android-all', version: "9-robolectric-4799589"
+    testImplementation 'junit:junit:4.12'
+}
+

@@ -1,4 +1,4 @@
-package com.example.custom_lib;
+package com.example.customlib;
 
 import com.google.flatbuffers.FlatBufferBuilder;
 import com.google.flatbuffers.FlatBufferBuilderViolator;
@@ -6,10 +6,9 @@ import com.fullstory.instrumentation.protocol.SessionRequestProto;
 
 import java.nio.ByteBuffer;
 
-//import android.annotation.NonNull;
+import android.annotation.NonNull;
 
-
-public class Greeter {
+public class MyClass {
     public String sayHello() {
         return "Hello world!";
     }
@@ -34,7 +33,6 @@ public class Greeter {
 
     public void DoIt() {
         android.util.Log.v("fullstory", "DoIt called");
-
         FlatBufferBuilder fb = new FlatBufferBuilder();
         int req2 = createSessionRequestProto(fb);
         fb.finish(req2);
@@ -44,7 +42,7 @@ public class Greeter {
         byte[] bytes = new byte[remaining];
         bb.get(bytes, 0, remaining);
 
-        String hexData = Greeter.toHexString(bytes);
+        String hexData = MyClass.toHexString(bytes);
         android.util.Log.v("fullstory", "===== startup request " + remaining + " bytes len = " + bytes.length + " hexData len =" + hexData.length() + " =====");
         for ( int i = 0; i < hexData.length(); i += 128) {
             if (i + 128 > hexData.length()) {
@@ -56,3 +54,4 @@ public class Greeter {
         android.util.Log.v("fullstory", "======================");
     }
 }
+

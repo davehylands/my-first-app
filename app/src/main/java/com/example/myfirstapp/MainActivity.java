@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
-import com.example.custom_lib.Greeter;
+import com.example.customlib.MyClass;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,9 +13,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Greeter greeter = new Greeter();
-        Log.i("fullstory", greeter.sayHello());
+        MyClass myClass = new MyClass();
+        Log.i("fullstory", myClass.sayHello());
 
-        greeter.DoIt();
+        myClass.DoIt();
     }
 }

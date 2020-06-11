@@ -1,3 +1,0 @@
-buildscript {
-    ext.robolectricVersion = '9-robolectric-4799589'
-}
